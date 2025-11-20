@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=harbour-dreamcastnow-client
+Exec=sailfish-qml harbour-dreamcastnow-client
+Name=Dreamfish Now
+
+[X-Sailjail]
+OrganizationName=io.github.roundedrectangle
+ApplicationName=dreamcastnow-client
+Permissions=Internet
