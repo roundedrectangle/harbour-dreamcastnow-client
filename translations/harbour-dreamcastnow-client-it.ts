@@ -11,12 +11,12 @@
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="66"/>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduzioni</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="69"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Italiano</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="81"/>
