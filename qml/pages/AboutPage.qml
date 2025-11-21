@@ -25,7 +25,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.'
             width: parent.width
 
             PageHeader {
-                title: qsTr("Dreamfish Now")
+                title: "Dreamfish Now"
             }
 
             Image {
@@ -61,7 +61,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.'
                 }
 
 
-                SectionHeader { text: qsTr("dom-parser") }
+                SectionHeader { text: "dom-parser" }
 
                 Label {
                     x: Theme.horizontalPageMargin
@@ -73,7 +73,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.'
 
                 ButtonLayout {
                     Button {
-                        text: qsTr("GitHub")
+                        text: "GitHub"
                         onClicked: Qt.openUrlExternally('https://github.com/ershov-konst/dom-parser')
                     }
                     Button {

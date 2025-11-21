@@ -4,33 +4,22 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="28"/>
-        <source>Dreamfish Now</source>
-        <translation>Dreamfish Now</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AboutPage.qml" line="53"/>
+        <location filename="../qml/pages/AboutPage.qml" line="55"/>
         <source>This project is licensed under GNU GPL 3.0. Copyright (c) 2025 roundedrectangle</source>
         <translation>Questo progetto è sotto licenza GNU-GPL 3.0. Copyright (c) 2025 roundedrectangle</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="58"/>
-        <location filename="../qml/pages/AboutPage.qml" line="76"/>
+        <location filename="../qml/pages/AboutPage.qml" line="60"/>
         <source>GitHub</source>
         <translation>GitHub</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="64"/>
-        <source>dom-parser</source>
-        <translation>dom parser</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AboutPage.qml" line="71"/>
+        <location filename="../qml/pages/AboutPage.qml" line="73"/>
         <source>This project uses a modified version of the dom-parser project, licensed under ISC.</source>
         <translation>Questo progetto usa una versione modificata del progetto dom parser, sotto licenza ISC.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="80"/>
+        <location filename="../qml/pages/AboutPage.qml" line="82"/>
         <source>ISC License</source>
         <translation>Licenza ISC</translation>
     </message>
@@ -60,32 +49,24 @@
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="35"/>
-        <source>Reload</source>
+        <source>Refresh</source>
         <translation>Ricarica</translation>
     </message>
     <message numerus="yes">
-        <location filename="../qml/pages/FirstPage.qml" line="41"/>
+        <location filename="../qml/pages/FirstPage.qml" line="44"/>
         <source>%Ln online</source>
         <translation>
             <numerusform>%Ln in linea</numerusform>
             <numerusform>%Ln in linea</numerusform>
         </translation>
     </message>
-    <message numerus="yes">
-        <location filename="../qml/pages/FirstPage.qml" line="46"/>
-        <source>Online (%Ln)</source>
-        <translation>
-            <numerusform>In linea (%Ln)</numerusform>
-            <numerusform>In linea (%Ln)</numerusform>
-        </translation>
-    </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="46"/>
+        <location filename="../qml/pages/FirstPage.qml" line="44"/>
         <source>Offline</source>
         <translation>Non in linea</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="142"/>
+        <location filename="../qml/pages/FirstPage.qml" line="140"/>
         <source>Played recently:</source>
         <translation>Giocati recentemente:</translation>
     </message>

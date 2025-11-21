@@ -32,18 +32,16 @@ Page {
                 onClicked: pageStack.push("SettingsPage.qml")
             }
             MenuItem {
-                text: qsTr("Reload")
+                text: qsTr("Refresh")
                 onClicked: appWindow.update()
             }
         }
 
-        header: PageHeader {
-            title: qsTr("%Ln online", '', onlineCount)
-        }
+        header: PageHeader { title: "Dreamfish Now" }
 
         section.property: 'status'
         section.delegate: SectionHeader {
-            text: section ? qsTr("Online (%Ln)", '', onlineCount) : qsTr("Offline")
+            text: section ? qsTr("%Ln online", '', onlineCount) : qsTr("Offline")
         }
 
         delegate: Item {

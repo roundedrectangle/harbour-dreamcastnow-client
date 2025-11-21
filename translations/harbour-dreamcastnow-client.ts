@@ -16,14 +16,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Dreamfish Now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>dom-parser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This project is licensed under GNU GPL 3.0. Copyright (c) 2025 roundedrectangle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43,18 +35,8 @@
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Reload</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message numerus="yes">
         <source>%Ln online</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <source>Online (%Ln)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
@@ -69,6 +51,10 @@
     </message>
     <message>
         <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
