@@ -54,7 +54,7 @@ ApplicationWindow {
 
     ConfigurationGroup {
         id: config
-        path: '/apps/harbour-dreamcastnow-client/'
+        path: '/apps/harbour-dreamcastnow-client'
 
         property string host: 'https://dreamcast.online'
         property string pagePath: '/now/'
