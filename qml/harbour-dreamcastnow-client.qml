@@ -32,10 +32,11 @@ ApplicationWindow {
 
     function update() {
         worker.sendMessage({
-                               model: usersModel,
-                               host: config.host,
-                               pagePath: config.pagePath
-                           })
+           model: usersModel,
+           isDcNet: config.useDcNet,
+           host: config.useDcNet ? config.dcNetHost : config.host,
+           pagePath: config.useDcNet ? config.dcNetPath : config.pagePath
+       })
     }
 
     ListModel { id: usersModel }
@@ -60,6 +61,9 @@ ApplicationWindow {
 
         property string host: 'https://dreamcast.online'
         property string pagePath: '/now/api/users.json'
+        property string dcNetHost: 'https://dcnet.flyca.st'
+        property string dcNetPath: '/status/api/players'
+        property bool useDcNet
         property bool autoUpdate: true
         property real updateInterval: 30 // while real value can't be customized in the app, it can be by editing dconf value manually
         property bool backgroundAutoUpdate: true

@@ -81,6 +81,14 @@
         <source>Couldn&apos;t parse the response as JSON</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Use Dreamcast Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use DCNet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsPage</name>
@@ -138,6 +146,14 @@
     </message>
     <message>
         <source>Background auto-update interval, in seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dreamcast Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DCNet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -34,37 +34,50 @@ Page {
                 onCurrentIndexChanged: config.separators = currentIndex
             }
 
-            TextField {
-                id: hostField
-                label: qsTr("Base URL, without a slash in the end")
-                text: config.host
-                onFocusChanged: if (!focus) config.host = text
+            Repeater {
+                model: [
+                    {section: qsTr("Dreamcast Now"), hostKey: 'host', defaultHost: 'https://dreamcast.online', pathKey: 'pagePath', defaultPath: '/now/api/users.json'},
+                    {section: qsTr("DCNet"), hostKey: 'dcNetHost', defaultHost: 'https://dcnet.flyca.st', pathKey: 'dcNetPath', defaultPath: '/status/api/players'}
+                ]
 
-                rightItem: IconButton {
-                    onClicked: hostField.text = "https://dreamcast.online"
+                Column {
+                    width: parent.width
 
-                    width: icon.width
-                    height: icon.height
-                    icon.source: "image://theme/icon-splus-remove"
-                    opacity: hostField.text == "https://dreamcast.online" ? 0 : 1
-                    Behavior on opacity { FadeAnimator {} }
-                }
-            }
+                    SectionHeader { text: modelData.section }
 
-            TextField {
-                id: pathField
-                label: qsTr("Page path")
-                text: config.pagePath
-                onFocusChanged: if (!focus) config.pagePath = text
+                    TextField {
+                        id: hostField
+                        label: qsTr("Base URL, without a slash in the end")
+                        text: config[modelData.hostKey]
+                        onFocusChanged: if (!focus) config[modelData.hostKey] = text
 
-                rightItem: IconButton {
-                    onClicked: pathField.text = '/now/api/users.json'
+                        rightItem: IconButton {
+                            onClicked: hostField.text = modelData.defaultHost
 
-                    width: icon.width
-                    height: icon.height
-                    icon.source: "image://theme/icon-splus-remove"
-                    opacity: pathField.text == '/now/api/users.json' ? 0 : 1
-                    Behavior on opacity { FadeAnimator {} }
+                            width: icon.width
+                            height: icon.height
+                            icon.source: "image://theme/icon-splus-remove"
+                            opacity: hostField.text === modelData.defaultHost ? 0 : 1
+                            Behavior on opacity { FadeAnimator {} }
+                        }
+                    }
+
+                    TextField {
+                        id: pathField
+                        label: qsTr("Page path")
+                        text: config[modelData.pathKey]
+                        onFocusChanged: if (!focus) config[modelData.pathKey] = text
+
+                        rightItem: IconButton {
+                            onClicked: pathField.text = modelData.defaultPath
+
+                            width: icon.width
+                            height: icon.height
+                            icon.source: "image://theme/icon-splus-remove"
+                            opacity: pathField.text === modelData.defaultPath ? 0 : 1
+                            Behavior on opacity { FadeAnimator {} }
+                        }
+                    }
                 }
             }
 

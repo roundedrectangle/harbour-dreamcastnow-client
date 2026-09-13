@@ -45,11 +45,21 @@
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="34"/>
+        <source>Use Dreamcast Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="34"/>
+        <source>Use DCNet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="42"/>
         <source>Refresh</source>
         <translation>Обновить</translation>
     </message>
     <message numerus="yes">
-        <location filename="../qml/pages/FirstPage.qml" line="52"/>
+        <location filename="../qml/pages/FirstPage.qml" line="63"/>
         <source>%Ln online</source>
         <translation>
             <numerusform>%Ln в сети</numerusform>
@@ -58,47 +68,47 @@
         </translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="52"/>
+        <location filename="../qml/pages/FirstPage.qml" line="63"/>
         <source>Offline</source>
         <translation>Оффлайн</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="130"/>
+        <location filename="../qml/pages/FirstPage.qml" line="141"/>
         <source>Playing %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="144"/>
+        <location filename="../qml/pages/FirstPage.qml" line="156"/>
         <source>Last seen %1 ago</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="166"/>
+        <location filename="../qml/pages/FirstPage.qml" line="179"/>
         <source>Played recently:</source>
         <translation>Недавно играл(-а) в:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="207"/>
+        <location filename="../qml/pages/FirstPage.qml" line="220"/>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="200"/>
+        <location filename="../qml/pages/FirstPage.qml" line="213"/>
         <source>No players</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="203"/>
+        <location filename="../qml/pages/FirstPage.qml" line="216"/>
         <source>Unexpected HTTP status code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="205"/>
+        <location filename="../qml/pages/FirstPage.qml" line="218"/>
         <source>Couldn&apos;t parse the response as JSON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="211"/>
+        <location filename="../qml/pages/FirstPage.qml" line="224"/>
         <source>Try again by pulling down to refresh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -137,41 +147,51 @@
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="39"/>
+        <source>Dreamcast Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="40"/>
+        <source>DCNet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="50"/>
         <source>Base URL, without a slash in the end</source>
         <translation>Начальный адрес, без слэша в конце</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="56"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="67"/>
         <source>Page path</source>
         <translation>Путь к странице</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="74"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="87"/>
         <source>Auto-update</source>
         <translation>Автообновление</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="75"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="88"/>
         <source>Auto-update interval, in seconds: %1</source>
         <translation>Интервал автообновления, в секундах: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="76"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="89"/>
         <source>Auto-update interval, in seconds</source>
         <translation>Интервал автообновления, в секундах</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="82"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="95"/>
         <source>Auto-update in background</source>
         <translation>Фоновое автообновление</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="83"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="96"/>
         <source>Background auto-update interval, in seconds: %1</source>
         <translation>Интервал фонового автообновления, в секундах: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="84"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="97"/>
         <source>Background auto-update interval, in seconds</source>
         <translation>Интервал фонового автообновления, в секундах</translation>
     </message>

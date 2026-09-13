@@ -1,19 +1,45 @@
 Qt.include("emoji.js")
 
-var model, host, pagePath
-
-function parseUrl(url) {
-    if (url.indexOf('//') === 0) return 'https:' + url
-    if (url.indexOf('/') === 0) return host + url
-    return url
+function s(str) {
+    // Remove non-breakable spaces
+    return str.replace('\u00a0', ' ')
 }
 
 WorkerScript.onMessage = function(message) {
-    model = message.model
-    host = message.host
-    pagePath = message.pagePath
+    var model = message.model
+    var isDcNet = message.isDcNet
+    var host = message.host
+    var pagePath = message.pagePath
+    console.log(isDcNet, host, pagePath)
 
     var request = new XMLHttpRequest()
+
+    // only for dcnow
+    function parseUrl(url) {
+        if (url.indexOf('//') === 0) return 'https:' + url
+        if (url.indexOf('/') === 0) return host + url
+        return url
+    }
+    function parseDuration(str) {
+        var res = 0
+        s(str).split(', ').forEach(function (part) {
+            var subparts = part.split(' ')
+            var k = 0
+            switch (subparts[1]) {
+            case 'days':
+                k = 3600*24
+                break
+            case 'hours':
+                k = 3600
+                break
+            case 'minutes':
+                k = 60
+                break
+            }
+            res += subparts[0] * k
+        })
+        return res
+    }
 
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
@@ -30,29 +56,50 @@ WorkerScript.onMessage = function(message) {
                 }
 
                 try {
-                    var users = data.users
-                    users.sort(function (user) { return user.online ? -1 : 1 })
-                    users.forEach(function (user) {
-                        var recentGames = []
-                        user.recent_games.forEach(function(game) {
-                            recentGames.push({gameIcon: host + '/static/img/games/covers/US/' + game.id + '.jpg'})
+                    if (isDcNet) {
+                        data.forEach(function (user) {
+                            model.append({
+                                name: user.name,
+                                username: user.loginName || '',
+                                avatar: user.thumbnail,
+                                flagImagePath: getFlagEmojiPath(user.geoloc.country),
+                                status: 'online',
+                                level: '',
+                                playing: user.gameName,
+                                lastSeen: user.date ? Math.floor((Date().now() - user.date) / 1000) : 0,
+                                lastSeenBold: false,
+                                background: '',
+                                recentlyPlayed: []
+                            })
                         })
 
-                        model.append({
-                            username: user.username,
-                            avatar: parseUrl(user.avatar),
-                            flagImagePath: getEmojiPath(user.flag),
-                            status: user.online ? 'online' : '',
-                            level: user.level,
-                            playing: user.current_game_display,
-                            lastSeen: user.last_seen,
-                            lastSeenBold: false, // TODO
-                            background: host + '/static/img/games/backgrounds/' + (user.current_game || 'UNKNOWN') + '.jpg',
-                            recentlyPlayed: recentGames
-                        })
-                    })
+                        WorkerScript.sendMessage({'type': 'onlineCount', count: data.length})
+                    } else {
+                        var users = data.users
+                        users.sort(function (user) { return user.online ? -1 : 1 })
+                        users.forEach(function (user) {
+                            var recentGames = []
+                            user.recent_games.forEach(function(game) {
+                                recentGames.push({gameIcon: host + '/static/img/games/covers/US/' + game.id + '.jpg'})
+                            })
 
-                    WorkerScript.sendMessage({type: 'onlineCount', count: data.online_count})
+                            model.append({
+                                name: s(user.username),
+                                username: '',
+                                avatar: parseUrl(user.avatar),
+                                flagImagePath: getEmojiPath(user.flag),
+                                status: user.online ? 'online' : '',
+                                level: s(user.level),
+                                playing: s(user.current_game_display),
+                                lastSeen: parseDuration(user.last_seen),
+                                lastSeenBold: false, // TODO
+                                background: host + '/static/img/games/backgrounds/' + (user.current_game || 'UNKNOWN') + '.jpg',
+                                recentlyPlayed: recentGames
+                            })
+                        })
+
+                        WorkerScript.sendMessage({type: 'onlineCount', count: data.online_count})
+                    }
                 } catch (e1) {
                     console.error("Error", e1)
                     WorkerScript.sendMessage('error')

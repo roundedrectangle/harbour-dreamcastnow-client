@@ -31,6 +31,14 @@ Page {
                 onClicked: pageStack.push("SettingsPage.qml")
             }
             MenuItem {
+                text: config.useDcNet ? qsTr("Use Dreamcast Now") : qsTr("Use DCNet")
+                onClicked: {
+                    config.useDcNet = !config.useDcNet
+                    appWindow.loading = true
+                    appWindow.update()
+                }
+            }
+            MenuItem {
                 text: qsTr("Refresh")
                 enabled: !appWindow.loading && !appWindow.refreshing
                 onClicked: {
@@ -45,11 +53,14 @@ Page {
             }
         }
 
-        header: PageHeader { title: "Dreamfish Now" }
+        header: PageHeader {
+            title: "Dreamfish Now"
+            description: config.useDcNet ? "DCNet" : "Dreamcast Now"
+        }
 
         section.property: 'status'
         section.delegate: SectionHeader {
-            text: section ? qsTr("%Ln online", '', onlineCount) : qsTr("Offline")
+            text: loading ? '' : (section ? qsTr("%Ln online", '', onlineCount) : qsTr("Offline"))
         }
 
         delegate: Item {
@@ -98,7 +109,7 @@ Page {
 
                             Column {
                                 id: textColumn
-                                width: parent.width - avatarImage.width - parent.spacing
+                                width: parent.width - (avatarImage.visible ? (avatarImage.width + parent.spacing) : 0)
                                 spacing: Theme.paddingMedium
 
                                 Row {
@@ -138,10 +149,11 @@ Page {
                                 }
 
                                 Label {
+                                    visible: !!lastSeen
                                     width: parent.width
                                     truncationMode: TruncationMode.Fade
                                     font.pixelSize: Theme.fontSizeSmall
-                                    text: qsTr("Last seen %1 ago").arg(lastSeen)
+                                    text: qsTr("Last seen %1 ago").arg(Format.formatDuration(lastSeen))
                                     color: lastSeenBold
                                            ? (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor)
                                            : (highlighted ? Theme.highlightColor : Theme.primaryColor)
@@ -150,6 +162,7 @@ Page {
 
                             Image {
                                 id: avatarImage
+                                visible: status != Image.Error
                                 width: Theme.iconSizeExtraLarge
                                 height: width
                                 source: avatar
