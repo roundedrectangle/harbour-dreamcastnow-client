@@ -139,7 +139,7 @@ Page {
 
                                 Label {
                                     width: parent.width
-                                    visible: !!text
+                                    visible: !!username
                                     text: '@' + username
                                     font.pixelSize: Theme.fontSizeExtraSmallBase
                                     color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
