@@ -16,12 +16,14 @@ ApplicationWindow {
     property bool refreshing
     property int onlineCount
 
+    readonly property string platformName: config.useDcNet ? "DCNet" : "Dreamcast Now"
+
     onLoadingChanged: if (!loading) everLoaded = true
 
     Notification {
         id: notification
         appIcon: Qt.resolvedUrl("../images/harbour-dreamcastnow-client.svg")
-        appName: "Dreamfish Now (%1)".arg(config.useDcNet ? "DCNet" : "Dreamcast Now")
+        appName: "Dreamfish Now (%1)".arg(platformName)
         isTransient: config.transientNotifications
         onReplacesIdChanged: replacesId = 0
     }

@@ -115,25 +115,42 @@ Page {
                         }
                     }
 
-                    Item { width:1; height: Theme.paddingMedium }
-
-                    Button {
-                        id: resetNotificationsButton
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        visible: config[modelData.notificationsKey] !== '[]'
-                        text: qsTr("Reset subscriptions")
-                    }
-
-                    Label {
-                        x: Theme.horizontalPageMargin
-                        width: parent.width - 2*x
+                    Column {
+                        id: resetNotificationsColumn
+                        width: parent.width
                         topPadding: Theme.paddingMedium
-                        visible: resetNotificationsButton.visible
-                        text: qsTr("Once a player you are subcribed to goes online, you will receive a notification. You are currently subscribed to the following players: %1.")
-                                .arg(JSON.parse(config[modelData.notificationsKey]).join(', '))
-                        color: Theme.secondaryHighlightColor
-                        font.pixelSize: Theme.fontSizeSmall
-                        wrapMode: Text.Wrap
+                        spacing: Theme.paddingMedium
+
+                        property bool hidden
+                        height: hidden ? 0 : implicitHeight
+                        Behavior on height { NumberAnimation { duration: 200 } }
+                        clip: hidden
+                        opacity: hidden ? 0 : 1
+                        Behavior on opacity { FadeAnimator {} }
+                        visible: !hidden && config[modelData.notificationsKey] !== '[]'
+
+                        Button {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: qsTr("Reset subscriptions")
+                            onClicked: {
+                                var remorse = Remorse.popupAction(
+                                            page,
+                                            qsTr("%1 subscriptions reset", "%1 is the platform (e.g. DCNet or Dreamcast Now); reset is in past form").arg(appWindow.platformName),
+                                            function() { config[modelData.notificationsKey] = '[]' }
+                                            )
+                                resetNotificationsColumn.hidden = Qt.binding(function() { return remorse && remorse.active })
+                            }
+                        }
+
+                        Label {
+                            x: Theme.horizontalPageMargin
+                            width: parent.width - 2*x
+                            text: qsTr("Once a player you are subcribed to goes online, you will receive a notification. You are currently subscribed to the following players: %1.")
+                                    .arg(JSON.parse(config[modelData.notificationsKey]).join(', '))
+                            color: Theme.secondaryHighlightColor
+                            font.pixelSize: Theme.fontSizeSmall
+                            wrapMode: Text.Wrap
+                        }
                     }
                 }
             }

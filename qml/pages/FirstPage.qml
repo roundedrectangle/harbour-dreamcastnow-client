@@ -55,7 +55,7 @@ Page {
 
         header: PageHeader {
             title: "Dreamfish Now"
-            description: config.useDcNet ? "DCNet" : "Dreamcast Now"
+            description: appWindow.platformName
         }
 
         section.property: 'status'
