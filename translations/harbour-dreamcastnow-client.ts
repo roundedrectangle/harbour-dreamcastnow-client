@@ -58,10 +58,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Last seen %1 ago</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -87,6 +83,14 @@
     </message>
     <message>
         <source>Use DCNet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Started playing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last seen %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

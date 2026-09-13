@@ -76,37 +76,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="156"/>
-        <source>Last seen %1 ago</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/FirstPage.qml" line="179"/>
+        <location filename="../qml/pages/FirstPage.qml" line="183"/>
         <source>Played recently:</source>
         <translation>Giocati recentemente:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="220"/>
+        <location filename="../qml/pages/FirstPage.qml" line="224"/>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="213"/>
+        <location filename="../qml/pages/FirstPage.qml" line="217"/>
         <source>No players</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="216"/>
+        <location filename="../qml/pages/FirstPage.qml" line="159"/>
+        <source>Started playing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="159"/>
+        <source>Last seen %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="220"/>
         <source>Unexpected HTTP status code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="218"/>
+        <location filename="../qml/pages/FirstPage.qml" line="222"/>
         <source>Couldn&apos;t parse the response as JSON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="224"/>
+        <location filename="../qml/pages/FirstPage.qml" line="228"/>
         <source>Try again by pulling down to refresh</source>
         <translation type="unfinished"></translation>
     </message>

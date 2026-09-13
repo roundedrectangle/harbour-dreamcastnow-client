@@ -151,9 +151,13 @@ Page {
                                 Label {
                                     visible: !!lastSeen
                                     width: parent.width
-                                    truncationMode: TruncationMode.Fade
+                                    wrapMode: Text.Wrap
                                     font.pixelSize: Theme.fontSizeSmall
-                                    text: qsTr("Last seen %1 ago").arg(Format.formatDuration(lastSeen))
+                                    text: {
+                                        var date = Format.formatDate(new Date(lastSeen), Formatter.TimeElapsed)
+                                        date = date[0].toLowerCase() + date.slice(1)
+                                        return (lastSeenStartedPlaying ? qsTr("Started playing %1") : qsTr("Last seen %1")).arg(date)
+                                    }
                                     color: lastSeenBold
                                            ? (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor)
                                            : (highlighted ? Theme.highlightColor : Theme.primaryColor)

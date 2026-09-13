@@ -10,7 +10,6 @@ WorkerScript.onMessage = function(message) {
     var isDcNet = message.isDcNet
     var host = message.host
     var pagePath = message.pagePath
-    console.log(isDcNet, host, pagePath)
 
     var request = new XMLHttpRequest()
 
@@ -25,14 +24,14 @@ WorkerScript.onMessage = function(message) {
         s(str).split(', ').forEach(function (part) {
             var subparts = part.split(' ')
             var k = 0
-            switch (subparts[1]) {
-            case 'days':
+            switch (subparts[1].replace(/s$/, '')) {
+            case 'day':
                 k = 3600*24
                 break
-            case 'hours':
+            case 'hour':
                 k = 3600
                 break
-            case 'minutes':
+            case 'minute':
                 k = 60
                 break
             }
@@ -66,7 +65,8 @@ WorkerScript.onMessage = function(message) {
                                 status: 'online',
                                 level: '',
                                 playing: user.gameName,
-                                lastSeen: user.date ? Math.floor((Date().now() - user.date) / 1000) : 0,
+                                lastSeen: user.date || 0,
+                                lastSeenStartedPlaying: true,
                                 lastSeenBold: false,
                                 background: '',
                                 recentlyPlayed: []
@@ -91,7 +91,8 @@ WorkerScript.onMessage = function(message) {
                                 status: user.online ? 'online' : '',
                                 level: s(user.level),
                                 playing: s(user.current_game_display),
-                                lastSeen: parseDuration(user.last_seen),
+                                lastSeen: (Date.now() - parseDuration(user.last_seen) * 1000), //"20\u00a0minutes"
+                                lastSeenStartedPlaying: false,
                                 lastSeenBold: false, // TODO
                                 background: host + '/static/img/games/backgrounds/' + (user.current_game || 'UNKNOWN') + '.jpg',
                                 recentlyPlayed: recentGames
