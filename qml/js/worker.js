@@ -18,6 +18,8 @@ WorkerScript.onMessage = function(message) {
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status >= 200 && request.status <= 300) {
+                model.clear()
+
                 console.log(request.status, request.responseText)
                 try {
                     var data = JSON.parse(request.responseText)
