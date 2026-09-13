@@ -154,13 +154,5 @@
         <source>Background auto-update interval, in seconds</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Dreamcast Now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DCNet</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 </TS>
