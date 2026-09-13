@@ -38,11 +38,11 @@
     </message>
     <message>
         <source>Use Dreamcast Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Vai a Dreamcast Now</translation>
     </message>
     <message>
         <source>Use DCNet</source>
-        <translation type="unfinished"></translation>
+        <translation>Vai a DCNet</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -61,17 +61,17 @@
     </message>
     <message>
         <source>Playing %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Sta giocando a %1</translation>
     </message>
     <message>
         <source>Started playing %1</source>
         <comment>time</comment>
-        <translation type="unfinished"></translation>
+        <translation>Ha iniziato a giocare da %1</translation>
     </message>
     <message>
         <source>Last seen %1</source>
         <comment>time</comment>
-        <translation type="unfinished"></translation>
+        <translation>Visto l&apos;ultima volta %1</translation>
     </message>
     <message>
         <source>Played recently:</source>
@@ -79,31 +79,31 @@
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore sconosciuto</translation>
     </message>
     <message>
         <source>No players</source>
-        <translation type="unfinished"></translation>
+        <translation>Non ci sono giocatori</translation>
     </message>
     <message>
         <source>Unexpected HTTP status code</source>
-        <translation type="unfinished"></translation>
+        <translation>Stato codice HTTP inaspettato</translation>
     </message>
     <message>
         <source>Couldn&apos;t parse the response as JSON</source>
-        <translation type="unfinished"></translation>
+        <translation>Non posso decodificare la risposta come JSON</translation>
     </message>
     <message>
         <source>Try again by pulling down to refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Prova di nuovo trascinando il pulley in basso per ricaricare</translation>
     </message>
     <message>
         <source>Unsubscribe</source>
-        <translation type="unfinished"></translation>
+        <translation>Disattiva notifica</translation>
     </message>
     <message>
         <source>Subscribe</source>
-        <translation type="unfinished"></translation>
+        <translation>Attiva notifica</translation>
     </message>
 </context>
 <context>
@@ -166,32 +166,32 @@
     </message>
     <message>
         <source>Show subscription notifications in Events</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra le notifiche per gli utenti selezionati nella schermata Eventi</translation>
     </message>
     <message>
         <source>If disabled, subscription notifications will only be briefly shown and you won&apos;t see them in the Events view.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se disabilitato, le notifiche saranno solo mostrate brevemente e non le vedrai nella schermata Eventi.</translation>
     </message>
     <message>
         <source>Reset subscriptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina sottoscrizioni</translation>
     </message>
     <message>
         <source>Once a player you are subcribed to goes online, you will receive a notification. You are currently subscribed to the following players: %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Una volta che un giocatore che hai scelto di seguire andrà in linea, riceverai una notifica. Attualmente stai seguendo i seguenti giocatori: %1.</translation>
     </message>
     <message>
         <source>Show subscription notifications when initially loading</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra notifiche di sottoscrizione al caricamento iniziale</translation>
     </message>
     <message>
         <source>Show notifications for subscribed players when first starting the app or after toggling the platform.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra le notifiche per i giocatori seguiti non appena avvii l&apos;app o al cambio di piattaforma.</translation>
     </message>
     <message>
         <source>%1 subscriptions reset</source>
         <comment>%1 is the platform (e.g. DCNet or Dreamcast Now); reset is in past form</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1 ripristino sottoscrizioni</translation>
     </message>
 </context>
 <context>
@@ -199,12 +199,12 @@
     <message>
         <source>%1 is now playing %2</source>
         <comment>notification</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1 sta giocando adesso a %2</translation>
     </message>
     <message>
         <source>%1 is now online</source>
         <comment>notification</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1 è adesso in linea</translation>
     </message>
 </context>
 </TS>
