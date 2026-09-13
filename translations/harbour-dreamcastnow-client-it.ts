@@ -4,29 +4,19 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="55"/>
+        <location filename="../qml/pages/AboutPage.qml" line="41"/>
         <source>This project is licensed under GNU GPL 3.0. Copyright (c) 2025 roundedrectangle</source>
         <translation>Questo progetto è sotto licenza GNU-GPL 3.0. Copyright (c) 2025 roundedrectangle</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="66"/>
+        <location filename="../qml/pages/AboutPage.qml" line="51"/>
         <source>Translations</source>
         <translation>Traduzioni</translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="69"/>
+        <location filename="../qml/pages/AboutPage.qml" line="54"/>
         <source>Italian</source>
         <translation>Italiano</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AboutPage.qml" line="81"/>
-        <source>This project uses a modified version of the dom-parser project, licensed under ISC.</source>
-        <translation>Questo progetto usa una versione modificata del progetto dom parser, sotto licenza ISC.</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AboutPage.qml" line="90"/>
-        <source>ISC License</source>
-        <translation>Licenza ISC</translation>
     </message>
 </context>
 <context>
@@ -43,22 +33,22 @@
 <context>
     <name>FirstPage</name>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="29"/>
+        <location filename="../qml/pages/FirstPage.qml" line="26"/>
         <source>About</source>
         <translation>Info</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="33"/>
+        <location filename="../qml/pages/FirstPage.qml" line="30"/>
         <source>Settings</source>
         <translation>Impostazioni</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="37"/>
+        <location filename="../qml/pages/FirstPage.qml" line="34"/>
         <source>Refresh</source>
         <translation>Ricarica</translation>
     </message>
     <message numerus="yes">
-        <location filename="../qml/pages/FirstPage.qml" line="49"/>
+        <location filename="../qml/pages/FirstPage.qml" line="52"/>
         <source>%Ln online</source>
         <translation>
             <numerusform>%Ln in linea</numerusform>
@@ -66,14 +56,49 @@
         </translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="49"/>
+        <location filename="../qml/pages/FirstPage.qml" line="52"/>
         <source>Offline</source>
         <translation>Non in linea</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="145"/>
+        <location filename="../qml/pages/FirstPage.qml" line="130"/>
+        <source>Playing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="144"/>
+        <source>Last seen %1 ago</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="166"/>
         <source>Played recently:</source>
         <translation>Giocati recentemente:</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="207"/>
+        <source>Unknown error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="200"/>
+        <source>No players</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="203"/>
+        <source>Unexpected HTTP status code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="205"/>
+        <source>Couldn&apos;t parse the response as JSON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="211"/>
+        <source>Try again by pulling down to refresh</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -119,32 +144,32 @@
         <translation>Percorso pagina</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="72"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="74"/>
         <source>Auto-update</source>
         <translation>Auto ricarica</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="85"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="75"/>
         <source>Auto-update interval, in seconds: %1</source>
         <translation>Intervallo auto ricarica di secondi: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="86"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="76"/>
         <source>Auto-update interval, in seconds</source>
         <translation>Intervallo auto ricarica, in secondi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="104"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="82"/>
         <source>Auto-update in background</source>
         <translation>Auto ricarica in background</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="117"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="83"/>
         <source>Background auto-update interval, in seconds: %1</source>
         <translation>Intervallo auto ricarica in background di secondi: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="118"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="84"/>
         <source>Background auto-update interval, in seconds</source>
         <translation>Intervallo auto ricarica in background di secondi</translation>
     </message>

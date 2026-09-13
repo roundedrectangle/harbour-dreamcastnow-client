@@ -9,28 +9,27 @@ ApplicationWindow {
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
 
+    property string error
     property bool loading: true
     property bool refreshing
     property int onlineCount
-
-    property string defaultBackground: config.host + '/static/img/games/backgrounds/UNKNOWN.jpg'
 
     WorkerScript {
         id: worker
         source: Qt.resolvedUrl("js/worker.js")
 
-        onMessage: {
-            if (messageObject === 'loaded')
+        onMessage:
+            if (messageObject.type === 'onlineCount')
+                onlineCount = messageObject.count
+            else {
+                error = messageObject === 'loaded' ? '' : messageObject
                 loading = refreshing = false
-            else
-                onlineCount = messageObject
-        }
+            }
     }
 
     function update() {
         worker.sendMessage({
                                model: usersModel,
-                               defaultBackground: defaultBackground,
                                host: config.host,
                                pagePath: config.pagePath
                            })
@@ -57,7 +56,7 @@ ApplicationWindow {
         path: '/apps/harbour-dreamcastnow-client'
 
         property string host: 'https://dreamcast.online'
-        property string pagePath: '/now/'
+        property string pagePath: '/now/api/users.json'
         property bool autoUpdate: true
         property real updateInterval: 30 // while real value can't be customized in the app, it can be by editing dconf value manually
         property bool backgroundAutoUpdate: true

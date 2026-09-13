@@ -1,6 +1,5 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
-import "../js/emoji.js" as Emoji
 
 Page {
     id: page
@@ -17,8 +16,6 @@ Page {
     SilicaListView {
         id: listView
         anchors.fill: parent
-        opacity: loading ? 0 : 1
-        Behavior on opacity { FadeAnimator {} }
 
         model: usersModel
 
@@ -35,7 +32,13 @@ Page {
             }
             MenuItem {
                 text: qsTr("Refresh")
+                enabled: !appWindow.loading && !appWindow.refreshing
                 onClicked: {
+                    if (appWindow.error) {
+                        appWindow.error = ''
+                        appWindow.loading = true
+                    }
+
                     appWindow.refreshing = true
                     appWindow.update()
                 }
@@ -55,6 +58,7 @@ Page {
             ListItem {
                 id: listItem
                 contentHeight: contentContainer.height
+                hidden: loading
 
                 Item {
                     id: contentContainer
@@ -90,27 +94,45 @@ Page {
 
                         Row {
                             width: parent.width
-                            spacing: Theme.paddingMedium
+                            spacing: Theme.paddingLarge
 
                             Column {
                                 id: textColumn
-                                width: parent.width - avatarImage.width - parent.spacing*1
+                                width: parent.width - avatarImage.width - parent.spacing
                                 spacing: Theme.paddingMedium
 
-                                Label {
+                                Row {
                                     width: parent.width
-                                    truncationMode: TruncationMode.Fade
-                                    font.pixelSize: Theme.fontSizeMedium
-                                    text: Emoji.emojify(username, Theme.fontSizeMedium)
+                                    spacing: Theme.paddingSmall
+
+                                    Label {
+                                        width: Math.min(implicitWidth, parent.width - (flagImage.visible ? (parent.spacing - flagImage.width) : 0))
+                                        truncationMode: TruncationMode.Fade
+                                        font.pixelSize: Theme.fontSizeMedium
+                                        text: username
+                                    }
+
+                                    Image {
+                                        id: flagImage
+                                        width: Theme.fontSizeMedium * 1.15
+                                        height: width
+                                        sourceSize {
+                                            width: width
+                                            height: height
+                                        }
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        source: Qt.resolvedUrl("../js/emoji/") + flagImagePath
+                                        visible: status != Image.Error
+                                    }
                                 }
 
                                 Repeater {
-                                    model: [playing, level]
+                                    model: [qsTr("Playing %1").arg(playing), level]
                                     Label {
                                         width: parent.width
                                         truncationMode: TruncationMode.Fade
                                         font.pixelSize: Theme.fontSizeSmall
-                                        text: Emoji.emojify(modelData, Theme.fontSizeSmall)
+                                        text: modelData
                                         visible: !!text
                                     }
                                 }
@@ -119,8 +141,7 @@ Page {
                                     width: parent.width
                                     truncationMode: TruncationMode.Fade
                                     font.pixelSize: Theme.fontSizeSmall
-                                    text: Emoji.emojify(lastSeen, Theme.fontSizeSmall)
-                                    //font.bold: lastSeenBold
+                                    text: qsTr("Last seen %1 ago").arg(lastSeen)
                                     color: lastSeenBold
                                            ? (highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor)
                                            : (highlighted ? Theme.highlightColor : Theme.primaryColor)
@@ -169,8 +190,25 @@ Page {
                 width: parent.width
                 horizontalAlignment: Qt.AlignCenter
                 color: Theme.primaryColor
-                visible: config.separators > 0
+                visible: config.separators > 0 && listItem.height > 0
             }
+        }
+
+        ViewPlaceholder {
+            visible: !loading && listView.count === 0
+            text: {
+                if (!error) return qsTr("No players")
+                switch (error) {
+                case 'httpError':
+                    return qsTr("Unexpected HTTP status code")
+                case 'jsonParseError':
+                    return qsTr("Couldn't parse the response as JSON")
+                default:
+                    return qsTr("Unknown error")
+                }
+            }
+
+            hintText: qsTr("Try again by pulling down to refresh")
         }
 
         VerticalScrollDecorator {}

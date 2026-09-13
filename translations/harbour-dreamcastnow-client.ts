@@ -4,14 +4,6 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <source>This project uses a modified version of the dom-parser project, licensed under ISC.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ISC License</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This project is licensed under GNU GPL 3.0. Copyright (c) 2025 roundedrectangle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -59,6 +51,34 @@
     </message>
     <message>
         <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Playing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last seen %1 ago</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No players</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Try again by pulling down to refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unexpected HTTP status code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t parse the response as JSON</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

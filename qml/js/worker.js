@@ -1,12 +1,6 @@
-Qt.include("dom-parser.js")
+Qt.include("emoji.js")
 
-var model, defaultBackground, host, pagePath
-
-function getNodeBackgroundFromStyle(node) {
-    var style = node.getAttribute('style')
-    if (!style) return ''
-    return parseUrl(new RegExp(/(\/[a-zA-Z0-9]+)+\.[a-z]+/g).exec(style)[0])
-}
+var model, host, pagePath
 
 function parseUrl(url) {
     if (url.indexOf('//') === 0) return 'https:' + url
@@ -14,72 +8,60 @@ function parseUrl(url) {
     return url
 }
 
-function s(a) {
-    return a.trim()
-        .replace(/&nbsp;/g, ' ') // non-break space, currently just replace with normal space
-        .replace(/&amp;/g, '&')
-        .replace(/&lt;/g, '<')
-        .replace(/&quot;/g, '"')
-        .replace(/&#039;/g, "'")
-        .replace(/&#x27;/g, "'")
-}
-
-function appendPlayer(node, status) {
-    var player = {
-        avatar: parseUrl(node.getElementsByClassName('player_info__icon')[0].getAttribute('src')),
-        username: s(node.getElementsByClassName('player_info__username')[0].textContent()),
-        playing: s(node.getElementsByClassName('player_info__playing')[0].textContent()),
-        level: s(node.getElementsByClassName('player_info__level')[0].textContent()),
-
-        status: status || ''
-    }
-
-    var lastSeenNode = node.getElementsByClassName('player_info__last_seen')[0]
-    player.lastSeen = lastSeenNode.textContent().trim()
-    player.lastSeenBold = lastSeenNode.getElementsByTagName('strong').length > 0
-
-    player.recentlyPlayed = [];
-    node.getElementsByClassName('recently_played__game').forEach(function(gameNode) {
-        var imgNode = gameNode.getElementsByTagName('img')[0]
-        if (imgNode)
-            player.recentlyPlayed.push({gameIcon: parseUrl(imgNode.getAttribute('src'))})
-    })
-
-    var backgroundNode = node.getElementsByClassName('player_background')[0]
-    player.background = (backgroundNode ? getNodeBackgroundFromStyle(backgroundNode) : '') || defaultBackground
-
-    model.append(player)
-}
-
-
 WorkerScript.onMessage = function(message) {
     model = message.model
-    defaultBackground = message.defaultBackground
     host = message.host
     pagePath = message.pagePath
 
-    var request = new XMLHttpRequest();
+    var request = new XMLHttpRequest()
 
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status >= 200 && request.status <= 300) {
-                var dom = new Dom(request.response)
+                console.log(request.status, request.responseText)
+                try {
+                    var data = JSON.parse(request.responseText)
+                } catch (e) {
+                    console.error("JSON parse error", e)
+                    WorkerScript.sendMessage('jsonParseError')
+                    return
+                }
 
-                var h2Tags = dom.getElementsByTagName('h2')
+                try {
+                    var users = data.users
+                    users.sort(function (user) { return user.online ? -1 : 1 })
+                    users.forEach(function (user) {
+                        var recentGames = []
+                        user.recent_games.forEach(function(game) {
+                            recentGames.push({gameIcon: host + '/static/img/games/covers/US/' + game.id + '.jpg'})
+                        })
 
-                WorkerScript.sendMessage(h2Tags[0].textContent().replace(/\D+/g, ''))
+                        model.append({
+                            username: user.username,
+                            avatar: parseUrl(user.avatar),
+                            flagImagePath: getEmojiPath(user.flag),
+                            status: user.online ? 'online' : '',
+                            level: user.level,
+                            playing: user.current_game_display,
+                            lastSeen: user.last_seen,
+                            lastSeenBold: false, // TODO
+                            background: host + '/static/img/games/backgrounds/' + (user.current_game || 'UNKNOWN') + '.jpg',
+                            recentlyPlayed: recentGames
+                        })
+                    })
 
-                model.clear()
-
-                h2Tags[0].parentNode.getElementsByClassName('player_card').forEach(function(node) {
-                    appendPlayer(node, 'online')
-                })
-                h2Tags[1].parentNode.getElementsByClassName('player_card').forEach(function(node) {
-                    appendPlayer(node)
-                })
+                    WorkerScript.sendMessage({type: 'onlineCount', count: data.online_count})
+                } catch (e1) {
+                    console.error("Error", e1)
+                    WorkerScript.sendMessage('error')
+                    return
+                }
 
                 model.sync()
                 WorkerScript.sendMessage('loaded')
+            } else {
+                console.log("Invalid HTTP response", request.status)
+                WorkerScript.sendMessage('httpError')
             }
         }
     }
