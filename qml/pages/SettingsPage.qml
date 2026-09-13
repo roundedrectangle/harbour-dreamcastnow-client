@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.6
 import Sailfish.Silica 1.0
 
 Page {
@@ -12,6 +12,7 @@ Page {
         Column {
             id: column
             width: parent.width
+            bottomPadding: Theme.paddingLarge
 
             PageHeader {
                 title: qsTr("Settings")
@@ -34,10 +35,33 @@ Page {
                 onCurrentIndexChanged: config.separators = currentIndex
             }
 
+            TextSwitch {
+                visible: config.notifications !== '[]' || config.dcNetNotifications !== '[]'
+                text: qsTr("Show subscription notifications in Events")
+                description: qsTr("If disabled, subscription notifications will only be briefly shown and you won't see them in the Events view.")
+                checked: !config.transientNotifications
+                automaticCheck: false
+                onCheckedChanged: config.transientNotifications = checked
+            }
+
             Repeater {
                 model: [
-                    {section: "Dreamcast Now", hostKey: 'host', defaultHost: 'https://dreamcast.online', pathKey: 'pagePath', defaultPath: '/now/api/users.json'},
-                    {section: "DCNet", hostKey: 'dcNetHost', defaultHost: 'https://dcnet.flyca.st', pathKey: 'dcNetPath', defaultPath: '/status/api/players'}
+                    {
+                        section: "Dreamcast Now",
+                        hostKey: 'host',
+                        defaultHost: 'https://dreamcast.online',
+                        pathKey: 'pagePath',
+                        defaultPath: '/now/api/users.json',
+                        notificationsKey: 'notifications'
+                    },
+                    {
+                        section: "DCNet",
+                        hostKey: 'dcNetHost',
+                        defaultHost: 'https://dcnet.flyca.st',
+                        pathKey: 'dcNetPath',
+                        defaultPath: '/status/api/players',
+                        notificationsKey: 'dcNetNotifications'
+                    }
                 ]
 
                 Column {
@@ -77,6 +101,27 @@ Page {
                             opacity: pathField.text === modelData.defaultPath ? 0 : 1
                             Behavior on opacity { FadeAnimator {} }
                         }
+                    }
+
+                    Item { width:1; height: Theme.paddingMedium }
+
+                    Button {
+                        id: resetNotificationsButton
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        visible: config[modelData.notificationsKey] !== '[]'
+                        text: qsTr("Reset subscriptions")
+                    }
+
+                    Label {
+                        x: Theme.horizontalPageMargin
+                        width: parent.width - 2*x
+                        topPadding: Theme.paddingMedium
+                        visible: resetNotificationsButton.visible
+                        text: qsTr("Once a player you are subcribed to goes online, you will receive a notification. You are currently subscribed to the following players: %1.")
+                                .arg(JSON.parse(config[modelData.notificationsKey]).join(', '))
+                        color: Theme.secondaryHighlightColor
+                        font.pixelSize: Theme.fontSizeSmall
+                        wrapMode: Text.Wrap
                     }
                 }
             }

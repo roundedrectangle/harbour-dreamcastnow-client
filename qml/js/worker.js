@@ -10,6 +10,12 @@ WorkerScript.onMessage = function(message) {
     var isDcNet = message.isDcNet
     var host = message.host
     var pagePath = message.pagePath
+    var notifications = message.notifications
+
+    var previousPlayerNames = []
+    if (notifications.length > 0)
+        for (var i=0; i < model.count; i++)
+            previousPlayerNames.push(model.get(i).name)
 
     var request = new XMLHttpRequest()
 
@@ -40,6 +46,13 @@ WorkerScript.onMessage = function(message) {
         return res
     }
 
+    function processPlayer(player) {
+        model.append(player)
+
+        if (notifications.indexOf(player.name) !== -1 && previousPlayerNames.indexOf(player.name) == -1)
+            WorkerScript.sendMessage({'type': 'notification', player: player})
+    }
+
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status >= 200 && request.status <= 300) {
@@ -57,7 +70,7 @@ WorkerScript.onMessage = function(message) {
                 try {
                     if (isDcNet) {
                         data.forEach(function (user) {
-                            model.append({
+                            processPlayer({
                                 name: user.name,
                                 username: user.loginName || '',
                                 avatar: user.thumbnail,
@@ -67,7 +80,6 @@ WorkerScript.onMessage = function(message) {
                                 playing: user.gameName,
                                 lastSeen: user.date || 0,
                                 lastSeenStartedPlaying: true,
-                                lastSeenBold: false,
                                 background: '',
                                 recentlyPlayed: []
                             })
@@ -83,7 +95,7 @@ WorkerScript.onMessage = function(message) {
                                 recentGames.push({gameIcon: host + '/static/img/games/covers/US/' + game.id + '.jpg'})
                             })
 
-                            model.append({
+                            processPlayer({
                                 name: s(user.username),
                                 username: '',
                                 avatar: parseUrl(user.avatar),
@@ -93,7 +105,6 @@ WorkerScript.onMessage = function(message) {
                                 playing: s(user.current_game_display),
                                 lastSeen: (Date.now() - parseDuration(user.last_seen) * 1000), //"20\u00a0minutes"
                                 lastSeenStartedPlaying: false,
-                                lastSeenBold: false, // TODO
                                 background: host + '/static/img/games/backgrounds/' + (user.current_game || 'UNKNOWN') + '.jpg',
                                 recentlyPlayed: recentGames
                             })
