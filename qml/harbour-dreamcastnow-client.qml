@@ -22,7 +22,10 @@ ApplicationWindow {
             if (messageObject.type === 'onlineCount')
                 onlineCount = messageObject.count
             else {
-                error = messageObject === 'loaded' ? '' : messageObject
+                if (messageObject !== 'loaded') {
+                    usersModel.clear()
+                    error = messageObject
+                }
                 loading = refreshing = false
             }
     }

@@ -195,7 +195,7 @@ Page {
         }
 
         ViewPlaceholder {
-            visible: !loading && listView.count === 0
+            enabled: !loading && listView.count === 0
             text: {
                 if (!error) return qsTr("No players")
                 switch (error) {
