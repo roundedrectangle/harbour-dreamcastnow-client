@@ -21,7 +21,8 @@ Page {
             TextSwitch {
                 text: qsTr("Show background")
                 checked: config.showBackground
-                onCheckedChanged: config.showBackground = checked
+                automaticCheck: false
+                onClicked: config.showBackground = !checked
             }
 
             ComboBox {
@@ -41,7 +42,7 @@ Page {
                 description: qsTr("If disabled, subscription notifications will only be briefly shown and you won't see them in the Events view.")
                 checked: !config.transientNotifications
                 automaticCheck: false
-                onCheckedChanged: config.transientNotifications = checked
+                onClicked: config.transientNotifications = checked
             }
 
             Repeater {
