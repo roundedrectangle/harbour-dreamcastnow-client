@@ -61,7 +61,7 @@ WorkerScript.onMessage = function(message) {
                                 name: user.name,
                                 username: user.loginName || '',
                                 avatar: user.thumbnail,
-                                flagImagePath: getFlagEmojiPath(user.geoloc.country),
+                                flagImagePath: user.geoloc && user.geoloc.country ? getFlagEmojiPath(user.geoloc.country) : '',
                                 status: 'online',
                                 level: '',
                                 playing: user.gameName,
