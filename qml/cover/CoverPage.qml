@@ -2,6 +2,8 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 CoverBackground {
+    id: cover
+
     Column {
         width: parent.width
         anchors.verticalCenter: parent.verticalCenter
@@ -28,6 +30,12 @@ CoverBackground {
                 size: BusyIndicatorSize.Medium
                 anchors.horizontalCenter: parent.horizontalCenter
                 running: appWindow.loading
+
+                Binding {
+                    target: busyIndicator
+                    property: '_forceAnimation'
+                    value: cover.status == Cover.Active || cover.status == Cover.Activating
+                }
             }
 
             Label {
