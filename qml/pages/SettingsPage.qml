@@ -5,6 +5,8 @@ Page {
     id: page
     allowedOrientations: Orientation.All
 
+    property bool notificationsEnabled: config.notifications !== '[]' || config.dcNetNotifications !== '[]'
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
@@ -37,7 +39,16 @@ Page {
             }
 
             TextSwitch {
-                visible: config.notifications !== '[]' || config.dcNetNotifications !== '[]'
+                visible: notificationsEnabled
+                text: qsTr("Show subscription notifications when initially loading")
+                description: qsTr("Show notifications for subscribed players when first starting the app or after toggling the platform.")
+                checked: config.showSubscriptionNotificationsOnStart
+                automaticCheck: false
+                onClicked: config.showSubscriptionNotificationsOnStart = !checked
+            }
+
+            TextSwitch {
+                visible: notificationsEnabled
                 text: qsTr("Show subscription notifications in Events")
                 description: qsTr("If disabled, subscription notifications will only be briefly shown and you won't see them in the Events view.")
                 checked: !config.transientNotifications

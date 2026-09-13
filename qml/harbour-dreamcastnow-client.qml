@@ -12,8 +12,11 @@ ApplicationWindow {
 
     property string error
     property bool loading: true
+    property bool everLoaded
     property bool refreshing
     property int onlineCount
+
+    onLoadingChanged: if (!loading) everLoaded = true
 
     Notification {
         id: notification
@@ -53,11 +56,14 @@ ApplicationWindow {
            isDcNet: config.useDcNet,
            host: config.useDcNet ? config.dcNetHost : config.host,
            pagePath: config.useDcNet ? config.dcNetPath : config.pagePath,
-           notifications: JSON.parse(config.useDcNet ? config.dcNetNotifications : config.notifications)
+           notifications: (config.showSubscriptionNotificationsOnStart || everLoaded)
+                          ? JSON.parse(config.useDcNet ? config.dcNetNotifications : config.notifications)
+                          : []
        })
     }
 
     function reloadUpdate() {
+        everLoaded = false
         loading = true
         update()
     }
@@ -81,6 +87,7 @@ ApplicationWindow {
         property int separators: 0 // 0 - no, 1 - separators, 2 - with padding
 
         property bool useDcNet
+        property bool showSubscriptionNotificationsOnStart: true
         property bool transientNotifications: true
 
         property string host: 'https://dreamcast.online'

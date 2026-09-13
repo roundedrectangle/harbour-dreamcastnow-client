@@ -34,8 +34,7 @@ Page {
                 text: config.useDcNet ? qsTr("Use Dreamcast Now") : qsTr("Use DCNet")
                 onClicked: {
                     config.useDcNet = !config.useDcNet
-                    appWindow.loading = true
-                    appWindow.update()
+                    appWindow.reloadUpdate()
                 }
             }
             MenuItem {
@@ -45,6 +44,7 @@ Page {
                     if (appWindow.error) {
                         appWindow.error = ''
                         appWindow.loading = true
+                        appWindow.everLoaded = false
                     }
 
                     appWindow.refreshing = true
