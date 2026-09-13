@@ -83,8 +83,7 @@ Page {
 
                             Rectangle {
                                 anchors.fill: parent
-                                color: Theme.overlayBackgroundColor
-                                opacity: Theme.opacityOverlay
+                                color: Theme.rgba(listItem.highlighted ? Theme.highlightDimmerColor : Theme.overlayBackgroundColor, Theme.opacityOverlay)
                                 visible: parent.status == Image.Ready
                             }
                         }
