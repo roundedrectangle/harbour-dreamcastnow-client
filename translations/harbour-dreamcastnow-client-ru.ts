@@ -46,12 +46,12 @@
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="34"/>
         <source>Use Dreamcast Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать Dreamcast Now</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="34"/>
         <source>Use DCNet</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать DCNet</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="42"/>
@@ -75,7 +75,19 @@
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="141"/>
         <source>Playing %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Играет в %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="159"/>
+        <source>Started playing %1</source>
+        <comment>time</comment>
+        <translation>Начал(-а) играть %1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="159"/>
+        <source>Last seen %1</source>
+        <comment>time</comment>
+        <translation>Был(-а) в сети %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="183"/>
@@ -85,37 +97,27 @@
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="224"/>
         <source>Unknown error</source>
-        <translation type="unfinished"></translation>
+        <translation>Неизвестная ошибка</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="217"/>
         <source>No players</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/FirstPage.qml" line="159"/>
-        <source>Started playing %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/FirstPage.qml" line="159"/>
-        <source>Last seen %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет игроков</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="220"/>
         <source>Unexpected HTTP status code</source>
-        <translation type="unfinished"></translation>
+        <translation>Неожиданный код ответа HTTP</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="222"/>
         <source>Couldn&apos;t parse the response as JSON</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось прочитать ответ как JSON</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="228"/>
         <source>Try again by pulling down to refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Попробуйте снова, потянув вниз и обновив</translation>
     </message>
 </context>
 <context>

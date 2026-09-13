@@ -76,6 +76,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../qml/pages/FirstPage.qml" line="159"/>
+        <source>Started playing %1</source>
+        <comment>time</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="159"/>
+        <source>Last seen %1</source>
+        <comment>time</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/pages/FirstPage.qml" line="183"/>
         <source>Played recently:</source>
         <translation>Giocati recentemente:</translation>
@@ -88,16 +100,6 @@
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="217"/>
         <source>No players</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/FirstPage.qml" line="159"/>
-        <source>Started playing %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/FirstPage.qml" line="159"/>
-        <source>Last seen %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

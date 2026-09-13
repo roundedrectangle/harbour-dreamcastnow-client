@@ -36,8 +36,8 @@ Page {
 
             Repeater {
                 model: [
-                    {section: qsTr("Dreamcast Now"), hostKey: 'host', defaultHost: 'https://dreamcast.online', pathKey: 'pagePath', defaultPath: '/now/api/users.json'},
-                    {section: qsTr("DCNet"), hostKey: 'dcNetHost', defaultHost: 'https://dcnet.flyca.st', pathKey: 'dcNetPath', defaultPath: '/status/api/players'}
+                    {section: "Dreamcast Now", hostKey: 'host', defaultHost: 'https://dreamcast.online', pathKey: 'pagePath', defaultPath: '/now/api/users.json'},
+                    {section: "DCNet", hostKey: 'dcNetHost', defaultHost: 'https://dcnet.flyca.st', pathKey: 'dcNetPath', defaultPath: '/status/api/players'}
                 ]
 
                 Column {

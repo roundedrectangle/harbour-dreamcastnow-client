@@ -87,10 +87,12 @@
     </message>
     <message>
         <source>Started playing %1</source>
+        <comment>time</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Last seen %1</source>
+        <comment>time</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>
