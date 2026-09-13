@@ -10,7 +10,7 @@ Page {
         running: (Qt.application.state === Qt.ApplicationActive) ? config.backgroundAutoUpdate : (config.autoUpdate && page.status == PageStatus.Active)
         repeat: true
         interval: ((Qt.application.state === Qt.ApplicationActive) ? config.updateInterval : config.backgroundUpdateInterval) * 1000
-        onTriggered: update()
+        onTriggered: if (!loading && !refreshing) update()
     }
 
     SilicaListView {
