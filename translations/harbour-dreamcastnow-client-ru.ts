@@ -99,6 +99,14 @@
         <source>Try again by pulling down to refresh</source>
         <translation>Попробуйте снова, потянув вниз и обновив</translation>
     </message>
+    <message>
+        <source>Unsubscribe</source>
+        <translation>Отписаться</translation>
+    </message>
+    <message>
+        <source>Subscribe</source>
+        <translation>Подписаться</translation>
+    </message>
 </context>
 <context>
     <name>SettingsPage</name>
@@ -157,6 +165,48 @@
     <message>
         <source>Background auto-update interval, in seconds</source>
         <translation>Интервал фонового автообновления, в секундах</translation>
+    </message>
+    <message>
+        <source>Show subscription notifications in Events</source>
+        <translation>Показывать уведомления в Событиях</translation>
+    </message>
+    <message>
+        <source>If disabled, subscription notifications will only be briefly shown and you won&apos;t see them in the Events view.</source>
+        <translation>Если отключено, уведомления о подписках будут кратковременно показаны и не появятся в Событиях.</translation>
+    </message>
+    <message>
+        <source>Reset subscriptions</source>
+        <translation>Сбросить подписки</translation>
+    </message>
+    <message>
+        <source>Once a player you are subcribed to goes online, you will receive a notification. You are currently subscribed to the following players: %1.</source>
+        <translation>Как только игрок, на которого вы подписаны, появится в сети, вы получите уведомление. На данный момент, вы подписаны на следующих игроков: %1.</translation>
+    </message>
+    <message>
+        <source>Show subscription notifications when initially loading</source>
+        <translation>Показывать уведомления о подписках при первоначальной загрузке</translation>
+    </message>
+    <message>
+        <source>Show notifications for subscribed players when first starting the app or after toggling the platform.</source>
+        <translation>Показывать уведомления о игроках, на которых Вы подписаны, при запуске приложения или после переключения платформы.</translation>
+    </message>
+    <message>
+        <source>%1 subscriptions reset</source>
+        <comment>%1 is the platform (e.g. DCNet or Dreamcast Now); reset is in past form</comment>
+        <translation>Подписки %1 сброшены</translation>
+    </message>
+</context>
+<context>
+    <name>harbour-dreamcastnow-client</name>
+    <message>
+        <source>%1 is now playing %2</source>
+        <comment>notification</comment>
+        <translation>%1 сейчас играет в %2</translation>
+    </message>
+    <message>
+        <source>%1 is now online</source>
+        <comment>notification</comment>
+        <translation>%1 теперь в сети</translation>
     </message>
 </context>
 </TS>
