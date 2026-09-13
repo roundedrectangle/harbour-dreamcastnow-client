@@ -110,7 +110,7 @@ Page {
                             Column {
                                 id: textColumn
                                 width: parent.width - (avatarImage.visible ? (avatarImage.width + parent.spacing) : 0)
-                                spacing: Theme.paddingMedium
+                                spacing: Theme.paddingSmall
 
                                 Row {
                                     width: parent.width
@@ -118,9 +118,9 @@ Page {
 
                                     Label {
                                         width: Math.min(implicitWidth, parent.width - (flagImage.visible ? (parent.spacing + flagImage.width) : 0))
-                                        truncationMode: TruncationMode.Fade
+                                        text: name
                                         font.pixelSize: Theme.fontSizeMedium
-                                        text: username
+                                        truncationMode: TruncationMode.Fade
                                     }
 
                                     Image {
@@ -135,6 +135,15 @@ Page {
                                         source: Qt.resolvedUrl("../js/emoji/") + flagImagePath
                                         visible: status != Image.Error
                                     }
+                                }
+
+                                Label {
+                                    width: parent.width
+                                    visible: !!text
+                                    text: '@' + username
+                                    font.pixelSize: Theme.fontSizeExtraSmallBase
+                                    color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                                    truncationMode: TruncationMode.Fade
                                 }
 
                                 Repeater {
