@@ -106,7 +106,7 @@ Page {
                                     spacing: Theme.paddingSmall
 
                                     Label {
-                                        width: Math.min(implicitWidth, parent.width - (flagImage.visible ? (parent.spacing - flagImage.width) : 0))
+                                        width: Math.min(implicitWidth, parent.width - (flagImage.visible ? (parent.spacing + flagImage.width) : 0))
                                         truncationMode: TruncationMode.Fade
                                         font.pixelSize: Theme.fontSizeMedium
                                         text: username
